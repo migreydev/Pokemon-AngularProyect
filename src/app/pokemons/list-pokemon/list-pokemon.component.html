@@ -1,0 +1,30 @@
+
+<div class="row">
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+
+          <th scope="col">Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Power</th>
+          <th scope="col">Total Power</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (pokemon of pokemons; track $index) {
+        <tr>
+          <td>{{pokemon.name.english}}</td>
+          <td>{{pokemon.type}}</td>
+          <td>HP: {{pokemon.base.HP}} Attack: {{pokemon.base.Attack}} Defense: {{pokemon.base.Defense}} Speed:{{pokemon.base.Speed}}</td>
+          <td>PODER TOTAL: {{pokemon.base.HP + pokemon.base.Attack + pokemon.base.Defense + pokemon.base.Speed}}</td>
+          <td>
+            <button class="btn btn-warning" (click)="editPokemon(pokemon.id)">Editar</button>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    <router-outlet></router-outlet>
+  </div>

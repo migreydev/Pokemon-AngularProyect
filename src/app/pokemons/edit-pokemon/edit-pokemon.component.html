@@ -1,0 +1,110 @@
+
+<div class="container-fluid mt-3">
+    <div class="row">
+      @if (id) {
+
+        <h3>Edit Pokemon</h3>
+        <form>
+          <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="name">
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-4">
+              <select type="text" class="form-control" id="type" [(ngModel)]="type" multiple name="type">
+                @for (type of typeSelect; track $index) {
+                <option>{{type}}</option>
+                }
+              </select>
+            </div>
+          </div>
+          <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">POWER</legend>
+            <div class="col">
+              <label for="hp">HP</label>
+              <input type="number" class="form-control" id="hp">
+            </div>
+            <div class="col">
+              <label for="attack">Attack</label>
+              <input type="number" class="form-control" id="attack">
+            </div>
+            <div class="col">
+              <label for="defense">Defense</label>
+              <input type="number" class="form-control" id="defense">
+            </div>
+            <div class="col">
+              <label for="sp.attack">SP. Attack</label>
+              <input type="number" class="form-control" id="sp.attack">
+            </div>
+            <div class="col">
+              <label for="sp.defense">Sp. Defense</label>
+              <input type="number" class="form-control" id="sp.defense">
+            </div>
+            <div class="col">
+              <label for="speed">Speed</label>
+              <input type="number" class="form-control" id="speed">
+            </div>
+      
+      
+          </fieldset>
+          <button type="button" class="btn btn-secondary" routerLink="/">Go Back</button>
+          <button type="submit" class="btn btn-warning mx-3" >Save</button>
+        </form>
+      }@else {
+        <h3>Add Pokemon</h3>
+        <form (ngSubmit)="onSubmit()">
+          <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="name" [(ngModel)]="name.english" name="name" >
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="name" class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-4">
+              <select type="text" class="form-control" id="type" [(ngModel)]="pokemon.type" name="type">
+                @for (type of typeSelect; track $index) {
+                <option>{{type}}</option>
+                }
+              </select>
+            </div>
+          </div>
+          <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0">POWER</legend>
+            <div class="col">
+              <label for="hp">HP</label>
+              <input type="number" class="form-control" id="hp" [(ngModel)]="base.HP" name="HP">
+            </div>
+            <div class="col">
+              <label for="attack">Attack</label>
+              <input type="number" class="form-control" id="attack" [(ngModel)]="base.Attack" name="Attack">
+            </div>
+            <div class="col">
+              <label for="defense">Defense</label>
+              <input type="number" class="form-control" id="defense" [(ngModel)]="base.Defense" name="Defense">
+            </div>
+            <div class="col">
+              <label for="sp.attack">SP. Attack</label>
+              <input type="number" class="form-control" id="sp.attack" [(ngModel)]="base['Sp. Attack']" name="Sp. Attack">
+            </div>
+            <div class="col">
+              <label for="sp.defense">Sp. Defense</label>
+              <input type="number" class="form-control" id="sp.defense" [(ngModel)]="base['Sp. Defense']" name="Sp. Defense">
+            </div>
+            <div class="col">
+              <label for="speed">Speed</label>
+              <input type="number" class="form-control" id="speed" [(ngModel)]="base.Speed" name="Speed">
+            </div>
+      
+      
+          </fieldset>
+          <button type="button" class="btn btn-secondary" routerLink="/">Go Back</button>
+          <button type="submit" class="btn btn-primary mx-3" >Save</button>
+        </form>
+      }
+  
+    </div>
+  </div>
