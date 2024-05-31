@@ -20,9 +20,15 @@ export class PokemonsService {
     return this.http.post<Main>(this.url, pokemon);
   }
 
-  getAllTypes(): Observable<Type> {
-    return this.http.get<Type>(this.url);
+  getPokemonById(id: string): Observable<Main>{
+    const urlCompleta = `${this.url}/${id}`;
+    return this.http.get<Main>(urlCompleta);
   }
 
+  editPokemon(pokemon: Main): Observable<Main> {
+    const urlCompleta = `${this.url}/${pokemon.id}`;
+    return this.http.put<Main>(urlCompleta, pokemon);
+  }
+  
 
 }

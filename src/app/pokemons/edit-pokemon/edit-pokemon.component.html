@@ -1,20 +1,20 @@
 
 <div class="container-fluid mt-3">
     <div class="row">
-      @if (id) {
+      @if (this.modeEdit) {
 
         <h3>Edit Pokemon</h3>
-        <form>
+        <form (ngSubmit)="onSubmit()">
           <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="name">
+              <input type="text" class="form-control" id="name" [(ngModel)]="pokemonEdit.name.english" name="name" >
             </div>
           </div>
           <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">Type</label>
             <div class="col-sm-4">
-              <select type="text" class="form-control" id="type" [(ngModel)]="type" multiple name="type">
+              <select type="text" class="form-control" id="type" [(ngModel)]="pokemonEdit.type" multiple name="type">
                 @for (type of typeSelect; track $index) {
                 <option>{{type}}</option>
                 }
@@ -25,33 +25,33 @@
             <legend class="col-form-label col-sm-2 pt-0">POWER</legend>
             <div class="col">
               <label for="hp">HP</label>
-              <input type="number" class="form-control" id="hp">
+              <input type="number" class="form-control" id="hp" [(ngModel)]="pokemonEdit.base.HP" name="HP" >
             </div>
             <div class="col">
               <label for="attack">Attack</label>
-              <input type="number" class="form-control" id="attack">
+              <input type="number" class="form-control" id="attack" [(ngModel)]="pokemonEdit.base.Attack" name="Attack">
             </div>
             <div class="col">
               <label for="defense">Defense</label>
-              <input type="number" class="form-control" id="defense">
+              <input type="number" class="form-control" id="defense" [(ngModel)]="pokemonEdit.base.Defense" name="Defense">
             </div>
             <div class="col">
               <label for="sp.attack">SP. Attack</label>
-              <input type="number" class="form-control" id="sp.attack">
+              <input type="number" class="form-control" id="sp.attack" [(ngModel)]="pokemonEdit.base['Sp. Attack']" name="Sp. Attack">
             </div>
             <div class="col">
               <label for="sp.defense">Sp. Defense</label>
-              <input type="number" class="form-control" id="sp.defense">
+              <input type="number" class="form-control" id="sp.defense" [(ngModel)]="pokemonEdit.base['Sp. Defense']" name="Sp. Defense">
             </div>
             <div class="col">
               <label for="speed">Speed</label>
-              <input type="number" class="form-control" id="speed">
+              <input type="number" class="form-control" id="speed" [(ngModel)]="pokemonEdit.base.Speed" name="Speed">
             </div>
       
       
           </fieldset>
           <button type="button" class="btn btn-secondary" routerLink="/">Go Back</button>
-          <button type="submit" class="btn btn-warning mx-3" >Save</button>
+          <button type="submit" class="btn btn-warning mx-3" >Edit</button>
         </form>
       }@else {
         <h3>Add Pokemon</h3>

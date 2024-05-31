@@ -8,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
 
+  mostrar : boolean = false;
+
+  ocultarBusqueda(){
+    this.mostrar = true;
+  }
+
+  mostrarBusqueda(){
+    this.mostrar = false;
+  }
+
 }

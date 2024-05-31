@@ -1,13 +1,21 @@
+@if (mostrar) {
 <div class="container">
     <br>
 <div class="row">
-    <div class="col-2">
-      <button type="button" class="btn btn-primary">Search</button>
-    </div>
-
+        <div class="col-2">
+          <button type="button" class="btn btn-primary" (click)="mostrarBusqueda()">Search</button>
+        </div>
 </div>
 <div class="row">
 
     Buscar: <input type="text">
 </div>
+
 </div>
+}@else {
+    <div class="row">
+        <div class="col-2">
+            <button type="button" class="btn btn-primary" (click)="ocultarBusqueda()">Search</button>
+        </div>
+    </div>
+}
