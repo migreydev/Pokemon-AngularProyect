@@ -17,12 +17,6 @@ export class ListPokemonComponent implements OnInit, OnChanges {
   ){}
 
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['nombre'] && !changes['nombre'].isFirstChange()){
-      this.searchPokemonByName();
-    }
-  }
-
   pokemons : Main[] = [];
 
   @Input() nombre: string = '';
@@ -32,7 +26,12 @@ export class ListPokemonComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     this.getPokemons();
+  }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['nombre']){
+      this.searchPokemonByName();
+    }
   }
 
   getPokemons(){
