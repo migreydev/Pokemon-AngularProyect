@@ -26,5 +26,11 @@
         }
       </tbody>
     </table>
+    @if (this.mensaje != '') {
+      <br>
+      <div class="text-center">
+        <h2 class="">{{ mensaje }}</h2>
+      </div>
+    }
     <router-outlet></router-outlet>
   </div>

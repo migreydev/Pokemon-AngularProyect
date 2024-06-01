@@ -30,5 +30,9 @@ export class PokemonsService {
     return this.http.put<Main>(urlCompleta, pokemon);
   }
   
+  searchPokemonByName(name: string): Observable<Main[]> {
+    const urlCompleta = `${this.url}?name.english=${name}`;
+    return this.http.get<Main[]>(urlCompleta);
+  }
 
 }

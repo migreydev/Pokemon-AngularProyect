@@ -1,2 +1,2 @@
-<app-search></app-search>
-<app-list-pokemon></app-list-pokemon>
+<app-search (enviarNombre)="nombre = $event"></app-search>
+<app-list-pokemon [nombre]="nombre"></app-list-pokemon>
